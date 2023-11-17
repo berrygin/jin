@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Panel in FastAPI: sliders</title>
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+    <body>
+      <main>
+        <nav>
+          {% include "includes/sidebar.html" %}
+        </nav>
+        <section>
+          {% block body %}{% endblock %}
+        </section>
+      </main>
+    </body>
+</html>
