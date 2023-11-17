@@ -1,0 +1,8 @@
+.main {
+  display: flex;
+}
+
+#sidebar {
+  width: 200px;
+  padding: 20px;
+}

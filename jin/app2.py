@@ -7,7 +7,7 @@ from dash.dependencies import Input, Output, State
 # app = dash.Dash(__name__)
 
 app = dash.Dash(external_stylesheets=[dbc.themes.DARKLY],
-                requests_pathname_prefix='/dashboard1/'
+                requests_pathname_prefix='/dashboard2/'
                 )
 
 app.layout = html.Div(children=[
@@ -22,7 +22,7 @@ app.layout = html.Div(children=[
                 html.Div(children=[html.A('dashboard2', href='/dashboard2')]),
                 ]
             ),
-        html.H2(children='Hello Dash 1'),
+        html.H2(children='Hello Dash 2'),
         # html.Div(children='''
         #     Dash: ウェブアプリケーションのフレームワーク
         # '''),
