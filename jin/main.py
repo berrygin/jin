@@ -6,7 +6,7 @@ from app2 import app as dashboard2
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
+import redis
 
 # Define the FastAPI server
 app = FastAPI()
@@ -17,12 +17,17 @@ app.mount(path='/static', app=StaticFiles(directory='static'), name='static')
 templates = Jinja2Templates(directory='templates')
 
 # Define the main API endpoint
-@app.get("/")
-def index(request: Request):
-    script = '<div>hello</div>'
-    return 'hello world'
-    # return templates.TemplateResponse("page.html", {"request": request, "script": script})
+# @app.get("/")
+# def index(request: Request):
+#     script = '<div>hello</div>'
+#     return 'hello world'
+#     # return templates.TemplateResponse("page.html", {"request": request, "script": script})
 
+@app.get("/")
+async def redis_get(key: str):
+    rc = redis.Redis(db=0, decode_responses=True)
+    json_str = rc.get(key)# .decode()
+    return json_str
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0")
